@@ -18,14 +18,14 @@ import java.util.List;
 
 public class Main {
 
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(com.java.demo.Main.class);
 
     public static void main(String[] args) throws SQLException, IOException {
 
         StudentDAO studentDAO = new StudentDAO();
         ScoreDAO scoreDAO = new ScoreDAO();
 
-        log.info("==================================== 新增操作 ====================================");
+        log.info("=================新增操作==================");
         log.info("  （1）新增单条学生数据；");
         Student student1 = new Student();
         student1.setName("张一");
@@ -45,13 +45,13 @@ public class Main {
         log.info("      新增成绩{}条", scCount1);
 
 
-        log.info("==================================== 修改操作 ====================================");
+        log.info("=================修改操作=================");
         log.info("  （1）根据id修改学生的姓名和年龄；");
         int updateStuCount1 = studentDAO.updateStudent(1, "张四", 18);
         log.info("      修改学生{}条", updateStuCount1);
 
 
-        log.info("==================================== 查询操作 ====================================");
+        log.info("===============查询操作=====================");
         log.info("  （1）根据id查询单个学生数据；");
         Student queryStu1 = studentDAO.queryStudentById(1);
         log.info("      学生信息:{}", queryStu1);
@@ -68,7 +68,7 @@ public class Main {
             log.info("      学生成绩{}", queryScore);
         }
 
-        log.info("==================================== 删除操作 ====================================");
+        log.info("===============删除操作==================");
         log.info("  （1）根据student_id删除学生的所有成绩；");
         int deleteStuCount1 = scoreDAO.deleteScoresByStudentId(1);
         log.info("      删除成绩{}条", deleteStuCount1);
@@ -77,7 +77,7 @@ public class Main {
         boolean success = studentDAO.deleteStudentAndScores(1);
         log.info("      删除{}", success ? "成功" : "失败");
 
-        log.info("==================================== 拓展要求 ====================================");
+        log.info("================拓展要求 ==================");
         log.info("  （1）批量新增学生：");
         List<Student> students = new ArrayList<Student>();
         Student student2 = new Student();
