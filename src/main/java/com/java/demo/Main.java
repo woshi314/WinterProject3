@@ -73,12 +73,13 @@ public class Main {
         int deleteStuCount1 = scoreDAO.deleteScoresByStudentId(1);
         log.info("      删除成绩{}条", deleteStuCount1);
 
-        log.info("  （2）根据id删除学生数据及其所有成绩（事务）；");
+        log.info("  （2）根据id删除学生数据及其所有成绩；");
+        log.info("      (拓展要求:（1）事务控制：)");
         boolean success = studentDAO.deleteStudentAndScores(1);
         log.info("      删除{}", success ? "成功" : "失败");
 
         log.info("================拓展要求 ==================");
-        log.info("  （1）批量新增学生：");
+        log.info("  （2）批量新增学生：");
         List<Student> students = new ArrayList<Student>();
         Student student2 = new Student();
         student2.setName("张二");
@@ -153,7 +154,7 @@ public class Main {
         int batchCount = studentDAO.addStudentsBatch(students);
         log.info("      批量新增了{}条数据", batchCount);
 
-        log.info("  （2）条件分页查询学生：");
+        log.info("  （3）条件分页查询学生：");
         int page = 2;
         int pageSize = 3;
         PageResult pageResult = studentDAO.queryStudentByPage(page, pageSize, "张", "男");
